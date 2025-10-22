@@ -1,27 +1,28 @@
-//How we import cdn url this is the way to import a named module
 import { CDN_URL } from "../utils/config";
+
+const styleCard = {
+    backgroundColor : "#D3D3D3",
+};
+
 const RestaurantCard = (props) => {
-// const RestaurantCard = ({resName, cuisine}) =>{
     const { resData } = props;
 
     const {
-        cloudinaryImageId,
         name,
+        cloudinaryImageId,
         cuisines,
         deliveryTime,
         avgRating,
         costForTwo
-    } = resData?.data;
+    } = resData?.info;
 
     return (
-        <div className="res-card" style={{backgroundColor : "#f0f0f0"}}>
+        <div className="res-card" style = {styleCard}>
         <img 
         className="res-logo" 
         alt="res-logo"
         src={CDN_URL + cloudinaryImageId}
         />
-            {/* <h3>{props.resName}</h3> */}
-            {/* <h4>{props.cuisine.join(", ")}</h4> */}
             <h3>{name}</h3>
             <h4>{cuisines.join(", ")}</h4>
             <h4>{avgRating}</h4>
